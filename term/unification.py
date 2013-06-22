@@ -4,6 +4,8 @@ from util import assoc
 from variable import Var, var, isvar
 import itertools as it
 
+from ground import new, op, args, isleaf
+
 ################
 # Reificiation #
 ################
@@ -45,8 +47,10 @@ def reify(e, s):
         return reify(s[e], s) if e in s else e
     elif type(e) in reify_dispatch:
         return reify_dispatch[type(e)](e, s)
-    elif hasattr(e, '_from_term') and not isinstance(e, type):
-        return e._from_term(reify(e._as_term(), s))
+    elif not isleaf(e):
+        new_op = reify(op(e), s)
+        new_args = reify(args(e), s)
+        return new(new_op, new_args)
     else:
         return e
 
@@ -80,9 +84,6 @@ unify_dispatch = {
         (dict, dict):   unify_dict,
         }
 
-unify_isinstance_list = []
-seq_registry = []
-
 def unify(u, v, s):  # no check at the moment
     """ Find substitution so that u == v while satisfying s
 
@@ -102,8 +103,11 @@ def unify(u, v, s):  # no check at the moment
     types = (type(u), type(v))
     if types in unify_dispatch:
         return unify_dispatch[types](u, v, s)
-    elif (hasattr(u, '_as_term') and not isinstance(u, type) and
-          hasattr(v, '_as_term') and not isinstance(v, type)):
-        return unify(u._as_term(), v._as_term(), s)
+    elif not isleaf(u) and not isleaf(v):
+        s = unify(op(u), op(v), s)
+        if s is False:
+            return s
+        else:
+            return unify(args(u), args(v), s)
     else:
         return False

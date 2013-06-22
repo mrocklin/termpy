@@ -1,4 +1,4 @@
-from term.unifymore import termify
+from term.ground import termify
 from term import var, unify, reify, variables
 
 class Foo(object):
