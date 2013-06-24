@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-from logpy.util import hashable
+from term.util import hashable
 from classtoolz import Slotted, Immutable
 import itertools as it
 
@@ -12,6 +12,10 @@ class Var(Slotted, Immutable):
 
     def __hash__(self):
         return hash((type(self), self.token))
+
+    def __str__(self):
+        return '~%s' % self.token
+    __repr__ = __str__
 
 var_ids = it.count(1)
 
