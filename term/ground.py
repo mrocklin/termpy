@@ -68,6 +68,7 @@ def termify_attr(cls):
     cls._term_op = attr_op
     cls._term_args = attr_args
     cls._term_isleaf = attr_isleaf
+    return cls
 
 def slot_new(op, args):
     obj = object.__new__(op)
@@ -86,6 +87,7 @@ def termify_slot(cls):
     cls._term_op = slot_op
     cls._term_args = slot_args
     cls._term_isleaf = slot_isleaf
+    return cls
 
 def termify(cls):
     if hasattr(cls, '__slots__'):
