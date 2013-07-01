@@ -6,9 +6,15 @@ import itertools as it
 _global_logic_variables = set()
 _glv = _global_logic_variables
 
-class Var(Slotted, Immutable):
+class Var(object):
     """ MetaVariable """
     __slots__ = ['token']
+
+    def __init__(self, token):
+        self.token = token
+
+    def __eq__(self, other):
+        return type(self) == type(other) and self.token == other.token
 
     def __hash__(self):
         return hash((type(self), self.token))
