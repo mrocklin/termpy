@@ -10,7 +10,6 @@ def hashable(x):
 def transitive_get(key, d):
     """ Transitive dict.get
 
-    >>> from logpy.util import transitive_get
     >>> d = {1: 2, 2: 3, 3: 4}
     >>> d.get(1)
     2
@@ -24,7 +23,7 @@ def transitive_get(key, d):
 def deep_transitive_get(key, d):
     """ Transitive get that propagates within tuples
 
-    >>> from logpy.util import transitive_get, deep_transitive_get
+    >>> from termpy.util import transitive_get, deep_transitive_get
     >>> d = {1: (2, 3), 2: 12, 3: 13}
     >>> transitive_get(1, d)
     (2, 3)
@@ -100,7 +99,7 @@ def groupby(f, coll):
 def evalt(t):
     """ Evaluate tuple if unevaluated
 
-    >>> from logpy.util import evalt
+    >>> from termpy.util import evalt
     >>> add = lambda x, y: x + y
     >>> evalt((add, 2, 3))
     5
@@ -120,7 +119,6 @@ def intersection(*seqs):
 def groupsizes(total, len):
     """ Groups of length len that add up to total
 
-    >>> from logpy.util import groupsizes
     >>> tuple(groupsizes(4, 2))
     ((1, 3), (2, 2), (3, 1))
     """

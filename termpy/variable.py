@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-from term.util import hashable
+from termpy.util import hashable
 import itertools as it
 
 _global_logic_variables = set()
@@ -40,7 +40,7 @@ def variables(*variables):
     """ Context manager for logic variables
 
     >>> from __future__ import with_statement
-    >>> from term import variables, var, isvar
+    >>> from termpy import variables, var, isvar
     >>> with variables(1):
     ...     print isvar(1)
     True
@@ -50,7 +50,7 @@ def variables(*variables):
 
     Normal approach
 
-    >>> from term import unify
+    >>> from termpy import unify
     >>> x = var('x')
     >>> unify((1, x), (1, 2), {})
     {~x: 2}

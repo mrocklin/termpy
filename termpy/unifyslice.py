@@ -1,4 +1,4 @@
-from term.unification import reify_tuple, unify_seq
+from termpy.unification import reify_tuple, unify_seq
 #########
 # Slice #
 #########
