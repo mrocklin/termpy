@@ -1,5 +1,5 @@
-from term.ground import termify
-from term import var, unify, reify, variables
+from termpy.ground import termify
+from termpy import var, unify, reify, variables
 
 class Foo(object):
     def __init__(self, a, b):

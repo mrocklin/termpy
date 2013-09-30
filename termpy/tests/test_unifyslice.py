@@ -1,5 +1,5 @@
-from term import var, unify, reify
-from term import unifyslice
+from termpy import var, unify, reify
+from termpy import unifyslice
 
 def test_unify_slice():
     x = var('x')

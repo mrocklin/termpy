@@ -1,4 +1,4 @@
-from term.variable import isvar, var, vars, variables
+from termpy.variable import isvar, var, vars, variables
 
 def test_isvar():
     assert not isvar(3)

@@ -1,6 +1,6 @@
-from term.unification import (unify, unify_dict, unify_seq, reify_dict,
+from termpy.unification import (unify, unify_dict, unify_seq, reify_dict,
         reify_list, reify)
-from term import var
+from termpy import var
 
 def test_reify():
     x, y, z = var(), var(), var()

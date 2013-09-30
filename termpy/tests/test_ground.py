@@ -1,4 +1,4 @@
-from term.ground import new, op, args, isleaf, termify
+from termpy.ground import new, op, args, isleaf, termify
 
 class Foo(object):
     def __init__(self, a, b):
