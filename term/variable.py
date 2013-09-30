@@ -1,6 +1,5 @@
 from contextlib import contextmanager
 from term.util import hashable
-from classtoolz import Slotted, Immutable
 import itertools as it
 
 _global_logic_variables = set()
