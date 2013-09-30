@@ -58,7 +58,7 @@ def variables(*variables):
     Context Manager approach
     >>> with variables('x'):
     ...     print unify((1, 'x'), (1, 2), {})
-    {~x: 2}
+    {'x': 2}
     """
     old_global_logic_variables = _global_logic_variables.copy()
     _global_logic_variables.update(set(variables))
